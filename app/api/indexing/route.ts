@@ -37,14 +37,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    // const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions);
 
-    // if (!session?.user) {
-    //   return NextResponse.json(
-    //     { success: false, error: "Please sign in before submitting URLs." },
-    //     { status: 401 }
-    //   );
-    // }
+    if (!session?.user) {
+      return NextResponse.json(
+        { success: false, error: "Please sign in before submitting URLs." },
+        { status: 401 }
+      );
+    }
 
     const apiKey = process.env.LIVEINDEXING_API_KEY;
 

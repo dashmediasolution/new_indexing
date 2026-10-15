@@ -172,8 +172,7 @@ export default function IndexingPage() {
       }
 
       setSuccessMessage(
-        data.message ||
-          `Your ${validUrls.length === 1 ? "URL has" : "URLs have"} been submitted successfully.`
+          `Your ${validUrls.length} ${validUrls.length === 1 ? "URL has" : "URLs have"} been submitted successfully.`
       );
       setInput("");
     } catch {

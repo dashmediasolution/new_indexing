@@ -21,8 +21,7 @@ export default function LogoutButton() {
       setLoading(false);
     }
   }
-
-  return (
+   return (
     <button
       type="button"
       onClick={handleLogout}

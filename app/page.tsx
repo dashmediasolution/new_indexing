@@ -1,15 +1,12 @@
 
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/lib/auth";
-import IndexingPage from "./compponents/Indexing-page";
 
-export default async function HomePage() {
-  const session = await getServerSession(authOptions);
+import { Suspense } from "react";
+import HomePageContent from "./home-page-content";
 
-  if (!session?.user) {
-    redirect("/login");
-  }
-
-  return <IndexingPage />;
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen" />}>
+      <HomePageContent />
+    </Suspense>
+  );
 }
